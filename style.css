@@ -1,0 +1,1322 @@
+/* =========================================================
+   SHRADDHA — LUXURY FLORAL INVITATION THEME
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ivory: #fffaf7;
+    --paper: #fffdfb;
+    --blush: #f4d6d4;
+    --pink: #d99aa0;
+    --rose: #b96f79;
+    --deep-rose: #8d4d59;
+    --dusty: #c9858e;
+    --lavender: #d9c9d8;
+    --champagne: #d9b58b;
+    --gold: #b99168;
+    --ink: #352a2b;
+    --muted: #766466;
+    --soft-text: #9a8081;
+    --line: rgba(141, 77, 89, 0.18);
+}
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "DM Sans", sans-serif;
+
+    color: var(--ink);
+
+    background:
+        radial-gradient(
+            circle at 8% 10%,
+            rgba(244, 196, 199, 0.55),
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 92% 18%,
+            rgba(225, 202, 214, 0.55),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 85%,
+            rgba(242, 210, 201, 0.6),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #fff9f5,
+            #fcecef 45%,
+            #fffaf7 100%
+        );
+}
+
+/* soft paper texture */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.25;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255,255,255,.9),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255,255,255,.8),
+            transparent 30%
+        );
+
+    z-index: 0;
+}
+
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.ambient {
+    position: fixed;
+
+    width: 420px;
+    height: 420px;
+
+    left: -150px;
+    top: 130px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(220, 145, 157, 0.28),
+            transparent 70%
+        );
+
+    filter: blur(30px);
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    animation: ambientFloat 12s ease-in-out infinite;
+}
+
+.grain {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .035;
+
+    z-index: 3;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+#particles,
+.petals {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+.particle {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: #d9949e;
+
+    box-shadow:
+        0 0 8px rgba(217,148,158,.5);
+
+    opacity: 0;
+
+    animation: particleFloat linear infinite;
+}
+
+.petal {
+    position: absolute;
+
+    font-size: 20px;
+
+    color: rgba(205, 123, 135, .35);
+
+    opacity: 0;
+
+    animation: petalFall linear infinite;
+}
+
+/* =========================================================
+   TOP NAVIGATION
+========================================================= */
+
+.topbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+
+    padding: 0 5vw;
+
+    z-index: 100;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,250,247,.96),
+            rgba(255,250,247,.72),
+            transparent
+        );
+
+    backdrop-filter: blur(14px);
+}
+
+.brand {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 32px;
+
+    color: var(--deep-rose);
+
+    white-space: nowrap;
+
+    letter-spacing: 1px;
+}
+
+.brand span {
+    color: var(--pink);
+
+    font-size: 23px;
+}
+
+.progress {
+    flex: 1;
+
+    max-width: 600px;
+
+    height: 4px;
+
+    margin: auto;
+
+    border-radius: 999px;
+
+    background: rgba(141,77,89,.12);
+
+    overflow: hidden;
+}
+
+.progress span {
+    display: block;
+
+    width: 12.5%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c77b85,
+            #e4b7a1
+        );
+
+    box-shadow:
+        0 0 10px rgba(199,123,133,.4);
+
+    transition: width .7s ease;
+}
+
+.music-btn {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(141,77,89,.25);
+
+    background:
+        rgba(255,255,255,.78);
+
+    color: var(--deep-rose);
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(141,77,89,.12);
+
+    transition: .3s ease;
+}
+
+.music-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+
+    background: white;
+
+    box-shadow:
+        0 12px 30px rgba(141,77,89,.2);
+}
+
+.music-btn.playing {
+    animation: musicGlow 1.8s infinite;
+}
+
+/* =========================================================
+   PAGES
+========================================================= */
+
+.page {
+    min-height: 100vh;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        120px
+        6vw
+        80px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+.page.active {
+    display: flex;
+
+    animation:
+        pageEnter .8s cubic-bezier(.2,.8,.2,1);
+}
+
+/* =========================================================
+   HERO — INVITATION COVER
+========================================================= */
+
+.hero {
+    width: min(850px, 100%);
+
+    text-align: center;
+
+    position: relative;
+
+    padding:
+        clamp(55px, 7vw, 90px)
+        clamp(25px, 6vw, 75px);
+
+    background:
+        rgba(255,253,251,.9);
+
+    border:
+        1px solid rgba(141,77,89,.18);
+
+    box-shadow:
+        0 35px 90px rgba(117,73,80,.16),
+        0 8px 30px rgba(117,73,80,.08);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+/* invitation border */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 14px;
+
+    border:
+        1px solid rgba(141,77,89,.18);
+
+    pointer-events: none;
+}
+
+/* flowers */
+
+.hero::after {
+    content: "🌸  🌹  🌸";
+
+    position: absolute;
+
+    right: 25px;
+    bottom: 15px;
+
+    font-size: 42px;
+
+    opacity: .65;
+
+    transform: rotate(-5deg);
+
+    letter-spacing: -7px;
+
+    pointer-events: none;
+}
+
+.eyebrow {
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    color: var(--gold);
+
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-family: "Great Vibes", cursive;
+
+    font-size:
+        clamp(
+            72px,
+            12vw,
+            145px
+        );
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    color: var(--deep-rose);
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 5px 20px rgba(141,77,89,.1);
+}
+
+.hero h1 span {
+    font-family: initial;
+
+    font-size: .32em;
+
+    vertical-align: middle;
+}
+
+.hero p {
+    max-width: 680px;
+
+    margin: 16px auto;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 21px;
+
+    line-height: 1.6;
+
+    color: var(--muted);
+}
+
+.hero .lead {
+    font-size: 26px;
+
+    color: var(--ink);
+}
+
+/* little decorative heart */
+
+.hero .eyebrow::after {
+    content: "  ♡";
+
+    color: var(--pink);
+
+    font-size: 17px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.primary,
+.next-btn {
+    border: none;
+
+    cursor: pointer;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-weight: 600;
+
+    letter-spacing: .4px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b86d78,
+            #d69aa0
+        );
+
+    box-shadow:
+        0 12px 30px rgba(141,77,89,.22);
+
+    padding:
+        15px 26px;
+
+    border-radius: 4px;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.primary:hover,
+.next-btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(141,77,89,.3);
+}
+
+.start-btn {
+    margin-top: 25px;
+
+    padding:
+        17px 32px;
+
+    font-size: 14px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+}
+
+.start-btn span {
+    margin-left: 10px;
+
+    font-size: 18px;
+}
+
+.scroll-note {
+    margin-top: 24px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #a58d8e;
+}
+
+/* =========================================================
+   STORY CARD
+========================================================= */
+
+.story-card {
+    width: min(900px, 100%);
+
+    padding:
+        clamp(35px, 6vw, 70px);
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        rgba(255,253,251,.94);
+
+    border:
+        1px solid rgba(141,77,89,.17);
+
+    border-radius: 7px;
+
+    box-shadow:
+        0 30px 80px rgba(100,63,70,.15),
+        0 5px 20px rgba(100,63,70,.06);
+}
+
+/* inner invitation frame */
+
+.story-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 13px;
+
+    border:
+        1px solid rgba(141,77,89,.13);
+
+    pointer-events: none;
+}
+
+/* floral corner */
+
+.story-card::after {
+    content: "🌸";
+
+    position: absolute;
+
+    right: 25px;
+    top: 18px;
+
+    font-size: 48px;
+
+    opacity: .48;
+
+    transform: rotate(10deg);
+
+    pointer-events: none;
+}
+
+.chapter {
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    color: var(--gold);
+
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+.story-card h2 {
+    font-family: "Great Vibes", cursive;
+
+    font-size:
+        clamp(
+            48px,
+            7vw,
+            76px
+        );
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: var(--deep-rose);
+
+    margin-bottom: 38px;
+
+    text-align: center;
+}
+
+.story-text {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 21px;
+
+    line-height: 1.65;
+
+    color: var(--muted);
+}
+
+.story-text p {
+    margin-bottom: 20px;
+}
+
+.story-text strong {
+    color: var(--deep-rose);
+
+    font-weight: 700;
+}
+
+.story-text em {
+    color: var(--rose);
+}
+
+.story-text h3 {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 48px;
+
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    color: var(--rose);
+
+    margin-top: 35px;
+
+    text-align: center;
+}
+
+.next-btn {
+    float: right;
+
+    margin-top: 20px;
+}
+
+/* =========================================================
+   FINAL QUESTION
+========================================================= */
+
+.final-card {
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,253,251,.98),
+            rgba(251,239,240,.96)
+        );
+}
+
+.final-card h2 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.final-card .story-text h3 {
+    font-family: "Great Vibes", cursive;
+
+    font-weight: 400;
+
+    font-size:
+        clamp(
+            38px,
+            6vw,
+            58px
+        );
+
+    color: var(--rose);
+}
+
+.choice-row {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 35px;
+
+    min-height: 70px;
+
+    position: relative;
+}
+
+.choice {
+    border: none;
+
+    border-radius: 4px;
+
+    padding:
+        15px 30px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: .25s;
+}
+
+.yes {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b86d78,
+            #dc9ba2
+        );
+
+    box-shadow:
+        0 12px 30px rgba(141,77,89,.2);
+}
+
+.yes:hover {
+    transform:
+        translateY(-4px)
+        scale(1.04);
+}
+
+.no {
+    color: var(--deep-rose);
+
+    background:
+        white;
+
+    border:
+        1px solid rgba(141,77,89,.22);
+
+    position: relative;
+}
+
+.tiny-note {
+    font-size: 11px;
+
+    color: #9c8586;
+
+    margin-top: 25px;
+}
+
+/* =========================================================
+   DATE / MESSAGE / PASSWORD
+========================================================= */
+
+.compact-card {
+    max-width: 720px;
+
+    text-align: center;
+}
+
+.compact-card h2 {
+    margin-bottom: 18px;
+}
+
+.center-copy {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 22px;
+
+    line-height: 1.5;
+
+    color: var(--muted);
+}
+
+.date-types {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.date-type {
+    border:
+        1px solid rgba(141,77,89,.16);
+
+    border-radius: 5px;
+
+    padding: 23px;
+
+    color: var(--deep-rose);
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #fdf0f1
+        );
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 22px;
+
+    transition: .3s;
+
+    box-shadow:
+        0 8px 20px rgba(141,77,89,.06);
+}
+
+.date-type:hover,
+.date-type.selected {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        var(--pink);
+
+    background:
+        #fbe5e7;
+
+    box-shadow:
+        0 15px 35px rgba(141,77,89,.13);
+}
+
+.date-type span {
+    display: block;
+
+    margin-top: 8px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 12px;
+
+    color: var(--muted);
+
+    letter-spacing: .5px;
+}
+
+.date-options {
+    display: grid;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    text-align: left;
+
+    animation:
+        fadeUp .4s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+label {
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: var(--deep-rose);
+
+    text-transform: uppercase;
+}
+
+input,
+textarea {
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 14px 15px;
+
+    border-radius: 4px;
+
+    border:
+        1px solid rgba(141,77,89,.18);
+
+    outline: none;
+
+    background:
+        rgba(255,255,255,.9);
+
+    color: var(--ink);
+
+    font: inherit;
+
+    box-shadow:
+        inset 0 2px 8px rgba(141,77,89,.03);
+}
+
+input:focus,
+textarea:focus {
+    border-color:
+        var(--pink);
+
+    box-shadow:
+        0 0 0 3px rgba(217,154,160,.12);
+}
+
+textarea {
+    height: 170px;
+
+    resize: vertical;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+}
+
+.password-input {
+    max-width: 350px;
+
+    display: block;
+
+    margin: 25px auto 0;
+
+    text-align: center;
+}
+
+.error-msg {
+    min-height: 20px;
+
+    color: var(--rose);
+
+    font-size: 12px;
+
+    margin-top: 8px;
+}
+
+.sparkle {
+    font-size: 42px;
+
+    color: var(--gold);
+
+    animation:
+        sparkle 2s infinite;
+}
+
+.signature {
+    font-family: "Great Vibes", cursive;
+
+    color: var(--rose);
+
+    font-size: 48px;
+
+    margin-top: 30px;
+}
+
+/* =========================================================
+   OVERLAY PAGES
+========================================================= */
+
+.overlay-page {
+    background:
+        rgba(255,249,247,.35);
+}
+
+/* =========================================================
+   DECORATIVE FLOWERS ON CARDS
+========================================================= */
+
+.final-thanks::before {
+    content: "🌸 🌷 🌸";
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    top: 15px;
+
+    font-size: 26px;
+
+    letter-spacing: 8px;
+
+    opacity: .65;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(28px)
+            scale(.985);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform:
+            translateY(105vh)
+            scale(.5);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .6;
+    }
+
+    100% {
+        transform:
+            translateY(-10vh)
+            scale(1);
+
+        opacity: 0;
+    }
+}
+
+@keyframes petalFall {
+    0% {
+        transform:
+            translateY(-10vh)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .65;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+@keyframes ambientFloat {
+    0%,
+    100% {
+        transform: translate(0,0);
+    }
+
+    50% {
+        transform: translate(90px,50px);
+    }
+}
+
+@keyframes musicGlow {
+    50% {
+        box-shadow:
+            0 0 25px rgba(185,111,121,.35);
+    }
+}
+
+@keyframes sparkle {
+    50% {
+        transform: scale(1.15) rotate(5deg);
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .topbar {
+        height: 65px;
+
+        padding:
+            0 18px;
+
+        gap: 12px;
+    }
+
+    .brand {
+        font-size: 25px;
+    }
+
+    .music-btn {
+        width: 38px;
+        height: 38px;
+
+        font-size: 17px;
+    }
+
+    .progress {
+        height: 3px;
+    }
+
+    .page {
+        padding:
+            90px 15px 45px;
+
+        align-items:
+            flex-start;
+    }
+
+    .hero {
+        margin-top: 4vh;
+
+        padding:
+            65px 22px 55px;
+
+        border-radius: 5px;
+    }
+
+    .hero::before {
+        inset: 10px;
+    }
+
+    .hero::after {
+        right: 10px;
+        bottom: 8px;
+
+        font-size: 30px;
+    }
+
+    .hero h1 {
+        font-size: 74px;
+
+        line-height: .95;
+    }
+
+    .hero .lead {
+        font-size: 22px;
+    }
+
+    .hero p {
+        font-size: 19px;
+
+        line-height: 1.55;
+    }
+
+    .story-card {
+        padding:
+            42px 24px 32px;
+
+        border-radius: 5px;
+    }
+
+    .story-card::before {
+        inset: 9px;
+    }
+
+    .story-card h2 {
+        font-size: 48px;
+
+        line-height: 1.05;
+
+        margin-bottom: 30px;
+    }
+
+    .story-text {
+        font-size: 19px;
+
+        line-height: 1.58;
+    }
+
+    .story-text h3 {
+        font-size: 42px;
+    }
+
+    .next-btn {
+        float: none;
+
+        width: 100%;
+
+        margin-top: 15px;
+    }
+
+    .date-types {
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 10px;
+    }
+
+    .date-type {
+        padding: 17px 8px;
+
+        font-size: 20px;
+    }
+
+    .choice-row {
+        gap: 10px;
+    }
+
+    .choice {
+        padding:
+            14px 23px;
+    }
+
+    .compact-card h2 {
+        font-size: 46px;
+    }
+
+    textarea {
+        height: 145px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .story-card h2 {
+        font-size: 43px;
+    }
+
+    .story-text {
+        font-size: 18px;
+    }
+
+    .date-types {
+        grid-template-columns:
+            1fr;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+    }
+}
