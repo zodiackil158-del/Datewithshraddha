@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const CONFIG = {
 
-        SECRET_PASSWORD: "shraddha",
+        SECRET_PASSWORD: "baisaneshraddha1@gmail.com ",
 
         GOOGLE_SCRIPT_URL:
             "https://script.google.com/macros/s/AKfycbxsdwNkay5KC6Noj_l1kL44HZ6rztSlhbbxfTKjFGH1LkWhYtqV61O5uuStW7K7KKpY/exec",
